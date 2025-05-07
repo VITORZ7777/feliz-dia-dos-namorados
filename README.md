@@ -1,5 +1,9 @@
 #
 import React, { useState } from "react";
+// Site FelizDiaDosNamorados.com
+// React + Tailwind + QR Code Generator - Página Finalizada
+
+import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import QRCode from "qrcode.react";
