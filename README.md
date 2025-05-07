@@ -1,8 +1,4 @@
-# feliz-dia-dos-namorados
-Site com QR Code e mensagem personalizada de amor
-// Site FelizDiaDosNamorados.com
-// React + Tailwind + QR Code Generator - Página Finalizada
-
+#
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
