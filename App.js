@@ -1,0 +1,1 @@
+// Este arquivo será substituído com o conteúdo do canvas
