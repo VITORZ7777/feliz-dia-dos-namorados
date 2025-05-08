@@ -24,7 +24,7 @@ Acesse o site aqui: [felizdia.netlify.app](https://felizdia.netlify.app) *(ou se
 
 ### 📸 Prévia do site:
 
-![Demonstração do site](link-do-seu-gif-ou-imagem-aqui.gif)
+![Demonstração do site](https://cdn.discordapp.com/attachments/1361779593341571194/1370067763082821732/AHVELxi.jpg?ex=681e2689&is=681cd509&hm=354fd5f6b139799f6aea322e9dab54eca7645460157833b3d0efac23f30d2c7c&)
 
 ---
 
