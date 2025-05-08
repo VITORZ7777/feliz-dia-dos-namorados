@@ -20,7 +20,7 @@ Um site romântico com QR Code e mensagem personalizada de amor. Ideal para pres
 
 ## 🌐 Demonstração
 
-Acesse o site aqui: [felizdia.netlify.app](https://felizdia.netlify.app) *(ou seu domínio personalizado)*
+Acesse o site aqui: [felizdia.netlify.app](https://feliznamorados.netlify.app/) 
 
 ### 📸 Prévia do site:
 
