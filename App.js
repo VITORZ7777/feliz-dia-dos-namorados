@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const musica = musicaInput.value.trim();
 
     if (!mensagem || !musica) {
-      alert("Por favor, preencha a mensagem e o link da música.");
+      alert("https://open.spotify.com/intl-pt/track/1lg7G5zyf8apcquXJ7iPYR");
       return;
     }
 
