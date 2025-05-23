@@ -1,126 +1,69 @@
-<html class="scroll-smooth" lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Feliz Dia dos Namorados 💗</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      .heart {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: red;
-        transform: rotate(45deg);
-        animation: float 6s infinite;
-      }
-      .heart::before,
-      .heart::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: red;
-        border-radius: 50%;
-      }
-      .heart::before {
-        top: -10px;
-        left: 0;
-      }
-      .heart::after {
-        top: 0;
-        left: -10px;
-      }
-      @keyframes float {
-        0% {
-          transform: translateY(100vh) rotate(45deg);
-          opacity: 0;
+<!-- ... (todo o restante do código anterior permanece igual até a div #surpresa) ... -->
+
+<div id="surpresa" class="hidden relative w-full h-screen flex flex-col items-center justify-center bg-pink-100 text-center p-6">
+  <div id="hearts" class="absolute inset-0 pointer-events-none"></div>
+  <h2 class="text-3xl font-bold text-red-700 mb-4">Eu amo você, necal</h2>
+  <img
+    src="URL_DA_SUA_FOTO"
+    alt="Foto especial"
+    class="rounded-lg shadow-lg w-64 mb-6"
+  />
+  <p id="textoDigitado" class="text-lg text-[#3f0f1a] mb-4 whitespace-pre-line"></p>
+  <div class="w-full max-w-sm mb-4">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lg7G5zyf8apcquXJ7iPYR?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+  <button onclick="voltarInicio()" class="mt-4 inline-flex items-center justify-center bg-white text-red-700 font-semibold rounded-md px-4 py-2 shadow-md hover:shadow-lg transition duration-300">
+    Voltar ao Início
+  </button>
+</div>
+
+<!-- ... (continue com a tag <audio> e os scripts) ... -->
+
+<script>
+  function mostrarSurpresa() {
+    document.getElementById('inicio').classList.add('hidden');
+    document.getElementById('surpresa').classList.remove('hidden');
+    criarCoracoes();
+    digitarTexto(
+      "Se eu tivesse que escolher de novo, escolheria você em todas as vidas, em todos os tempos, em todas as histórias. Porque amar você é como respirar: essencial, natural e eterno.\n\nNeste Dia dos Namorados, quero te lembrar que meu amor por você não tem fim. Você é o motivo do meu sorriso mais sincero, meu abraço mais apertado e meus sonhos mais bonitos. Te amo hoje, amanhã e para sempre.",
+      "textoDigitado",
+      35
+    );
+  }
+
+  function voltarInicio() {
+    document.getElementById('surpresa').classList.add('hidden');
+    document.getElementById('inicio').classList.remove('hidden');
+    document.getElementById('textoDigitado').textContent = "";
+    document.getElementById('hearts').innerHTML = "";
+  }
+
+  function criarCoracoes() {
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.animationDelay = `${Math.random() * 6}s`;
+      heartsContainer.appendChild(heart);
+    }
+  }
+
+  function digitarTexto(texto, elementoId, velocidade = 50) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("teclaAudio");
+    let i = 0;
+    const intervalo = setInterval(() => {
+      if (i < texto.length) {
+        elemento.textContent += texto.charAt(i);
+        if (texto.charAt(i) !== " " && texto.charAt(i) !== "\n") {
+          audio.currentTime = 0;
+          audio.play();
         }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-10vh) rotate(45deg);
-          opacity: 0;
-        }
+        i++;
+      } else {
+        clearInterval(intervalo);
       }
-    </style>
-  </head>
-  <body class="bg-black min-h-screen flex items-center justify-center p-6 text-white">
-    <main id="inicio" class="text-center max-w-md w-full">
-      <h1 class="text-[28px] font-extrabold text-white mb-4 leading-tight">
-        ❤️ Feliz Dia dos <br /> Namorados ❤️
-      </h1>
-      <img
-        alt="Foto romântica"
-        src="https://cdn.discordapp.com/attachments/1361779593341571194/1370067763082821732/AHVELxi.jpg"
-        class="mx-auto rounded-md shadow-md mb-6 max-w-full h-auto"
-        width="300"
-      />
-      <button onclick="mostrarSurpresa()" class="inline-flex items-center justify-center bg-white text-black rounded-md px-4 py-2 shadow-md hover:shadow-lg transition duration-300 mb-6 mx-auto">
-        Ler mais
-      </button>
-    </main>
-
-    <div id="surpresa" class="hidden relative w-full h-screen flex flex-col items-center justify-center bg-pink-100 text-center p-6">
-      <div id="hearts" class="absolute inset-0 pointer-events-none"></div>
-      <h2 class="text-3xl font-bold text-red-700 mb-4">Eu amo você, necal</h2>
-      <img
-        src="URL_DA_SUA_FOTO"
-        alt="Foto especial"
-        class="rounded-lg shadow-lg w-64 mb-6"
-      />
-      <p id="textoDigitado" class="text-lg text-[#3f0f1a] mb-4 whitespace-pre-line"></p>
-      <div class="w-full max-w-sm mb-4">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lg7G5zyf8apcquXJ7iPYR?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    </div>
-
-    <audio id="teclaAudio" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b011ae51b5.mp3?filename=typewriter-key-1-19849.mp3"></audio>
-
-    <script>
-      function mostrarSurpresa() {
-        document.getElementById('inicio').classList.add('hidden');
-        document.getElementById('surpresa').classList.remove('hidden');
-        criarCoracoes();
-        digitarTexto(
-          "Se eu tivesse que escolher de novo, escolheria você em todas as vidas, em todos os tempos, em todas as histórias. Porque amar você é como respirar: essencial, natural e eterno.\n\nNeste Dia dos Namorados, quero te lembrar que meu amor por você não tem fim. Você é o motivo do meu sorriso mais sincero, meu abraço mais apertado e meus sonhos mais bonitos. Te amo hoje, amanhã e para sempre.",
-          "textoDigitado",
-          35
-        );
-      }
-
-      function criarCoracoes() {
-        const heartsContainer = document.getElementById('hearts');
-        for (let i = 0; i < 20; i++) {
-          const heart = document.createElement('div');
-          heart.className = 'heart';
-          heart.style.left = `${Math.random() * 100}%`;
-          heart.style.animationDelay = `${Math.random() * 6}s`;
-          heartsContainer.appendChild(heart);
-        }
-      }
-
-      function digitarTexto(texto, elementoId, velocidade = 50) {
-        const elemento = document.getElementById(elementoId);
-        const audio = document.getElementById("teclaAudio");
-        let i = 0;
-        const intervalo = setInterval(() => {
-          if (i < texto.length) {
-            elemento.textContent += texto.charAt(i);
-            if (texto.charAt(i) !== " " && texto.charAt(i) !== "\n") {
-              audio.currentTime = 0;
-              audio.play();
-            }
-            i++;
-          } else {
-            clearInterval(intervalo);
-          }
-        }, velocidade);
-      }
-    </script>
-  </body>
-</html>
+    }, velocidade);
+  }
+</script>
