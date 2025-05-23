@@ -1,42 +1,102 @@
 <html class="scroll-smooth" lang="pt-BR">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Feliz Dia dos Namorados
-  </title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
-  <style>
-   body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
- </head>
- <body class="bg-[#f7e4e2] min-h-screen flex items-center justify-center p-6">
-  <main class="text-center max-w-md w-full">
-   <h1 class="text-[28px] font-extrabold text-[#3f0f1a] mb-4 leading-tight">
-    ❤️ Feliz Dia dos
-    <br/>
-    Namorados ❤️
-   </h1>
-   <p class="text-[#3f0f1a] text-base mb-6 leading-relaxed">
-    Meu amor, você é a melhor parte da minha vida. Obrigado por estar ao meu lado. Te amo!
-   </p>
-   <button class="inline-flex items-center justify-center bg-white text-[#3f0f1a] rounded-md px-4 py-2 shadow-md hover:shadow-lg transition-shadow duration-300 mb-6 mx-auto" type="button">
-    <img alt="Foto escolhida pelo usuário mostrando um casal sorridente abraçado em um ambiente externo com luz natural suave" class="mx-auto rounded-md shadow-md mb-6 max-w-full h-auto" height="200" src="https://cdn.discordapp.com/attachments/1361779593341571194/1370067763082821732/AHVELxi.jpg?ex=681e2689&amp;is=681cd509&amp;hm=354fd5f6b139799f6aea322e9dab54eca7645460157833b3d0efac23f30d2c7c&amp;" width="300"/>
-   </button>
-   <p class="text-[#3f0f1a] text-base leading-relaxed mb-4">
-    <span class="text-purple-700 text-lg align-middle mr-1">
-     🎵
-    </span>
-    Nossa música especial:
-    <br/>
-    <a class="text-[#b3003b] underline font-semibold cursor-pointer" href="https://open.spotify.com/track/1lg7G5zyf8apcquXJ7iPYR" target="_blank" rel="noopener noreferrer">
-     Ouvir no Spotify
-    </a>
-   </p>
-  </main>
- </body>
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Feliz Dia dos Namorados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"/>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        transform: rotate(45deg);
+        animation: float 6s infinite;
+      }
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+      .heart::after {
+        top: 0;
+        left: -10px;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(45deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh) rotate(45deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#f7e4e2] min-h-screen flex items-center justify-center p-6">
+    <main id="inicio" class="text-center max-w-md w-full">
+      <h1 class="text-[28px] font-extrabold text-[#3f0f1a] mb-4 leading-tight">
+        ❤️ Feliz Dia dos <br/> Namorados ❤️
+      </h1>
+      <img
+        alt="Foto romântica"
+        src="https://cdn.discordapp.com/attachments/1361779593341571194/1370067763082821732/AHVELxi.jpg"
+        class="mx-auto rounded-md shadow-md mb-6 max-w-full h-auto"
+        width="300"
+      />
+      <button onclick="mostrarSurpresa()" class="inline-flex items-center justify-center bg-white text-[#3f0f1a] rounded-md px-4 py-2 shadow-md hover:shadow-lg transition duration-300 mb-6 mx-auto">
+        Ler mais
+      </button>
+    </main>
+
+    <div id="surpresa" class="hidden relative w-full h-screen flex flex-col items-center justify-center bg-pink-100 text-center p-6">
+      <!-- Corações animados -->
+      <div id="hearts" class="absolute inset-0 pointer-events-none"></div>
+      <h2 class="text-3xl font-bold text-red-700 mb-4">Te amo mais que tudo!</h2>
+      <img
+        src="URL_DA_SUA_FOTO"
+        alt="Foto especial"
+        class="rounded-lg shadow-lg w-64 mb-6"
+      />
+      <p class="text-lg text-[#3f0f1a] mb-4">Você é o meu sonho realizado.</p>
+      <div class="w-full max-w-sm mb-4">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lg7G5zyf8apcquXJ7iPYR?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <script>
+      function mostrarSurpresa() {
+        document.getElementById('inicio').classList.add('hidden');
+        document.getElementById('surpresa').classList.remove('hidden');
+        criarCoracoes();
+      }
+
+      function criarCoracoes() {
+        const heartsContainer = document.getElementById('hearts');
+        for (let i = 0; i < 20; i++) {
+          const heart = document.createElement('div');
+          heart.className = 'heart';
+          heart.style.left = `${Math.random() * 100}%`;
+          heart.style.animationDelay = `${Math.random() * 6}s`;
+          heartsContainer.appendChild(heart);
+        }
+      }
+    </script>
+  </body>
 </html>
