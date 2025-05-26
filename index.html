@@ -75,8 +75,11 @@
       />
       <p id="textoDigitado" class="text-lg text-[#3f0f1a] mb-4 whitespace-pre-line"></p>
       <div class="w-full max-w-sm mb-4">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lg7G5zyf8apcquXJ7iPYR?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1OmjE2akxXKRn1fAKGjWpq?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
+      <button onclick="voltarInicio()" class="mt-4 inline-flex items-center justify-center bg-white text-red-700 font-semibold rounded-md px-4 py-2 shadow-md hover:shadow-lg transition duration-300">
+        Voltar ao Início
+      </button>
     </div>
 
     <audio id="teclaAudio" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b011ae51b5.mp3?filename=typewriter-key-1-19849.mp3"></audio>
@@ -91,6 +94,13 @@
           "textoDigitado",
           35
         );
+      }
+
+      function voltarInicio() {
+        document.getElementById('surpresa').classList.add('hidden');
+        document.getElementById('inicio').classList.remove('hidden');
+        document.getElementById('textoDigitado').textContent = "";
+        document.getElementById('hearts').innerHTML = "";
       }
 
       function criarCoracoes() {
@@ -124,71 +134,3 @@
     </script>
   </body>
 </html>
-
-<div id="surpresa" class="hidden relative w-full h-screen flex flex-col items-center justify-center bg-pink-100 text-center p-6">
-  <div id="hearts" class="absolute inset-0 pointer-events-none"></div>
-  <h2 class="text-3xl font-bold text-red-700 mb-4">Eu amo você, necal</h2>
-  <img
-    src="URL_DA_SUA_FOTO"
-    alt="Foto especial"
-    class="rounded-lg shadow-lg w-64 mb-6"
-  />
-  <p id="textoDigitado" class="text-lg text-[#3f0f1a] mb-4 whitespace-pre-line"></p>
-  <div class="w-full max-w-sm mb-4">
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lg7G5zyf8apcquXJ7iPYR?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-  <button onclick="voltarInicio()" class="mt-4 inline-flex items-center justify-center bg-white text-red-700 font-semibold rounded-md px-4 py-2 shadow-md hover:shadow-lg transition duration-300">
-    Voltar ao Início
-  </button>
-</div>
-
-<!-- ... (continue com a tag <audio> e os scripts) ... -->
-
-<script>
-  function mostrarSurpresa() {
-    document.getElementById('inicio').classList.add('hidden');
-    document.getElementById('surpresa').classList.remove('hidden');
-    criarCoracoes();
-    digitarTexto(
-      "Se eu tivesse que escolher de novo, escolheria você em todas as vidas, em todos os tempos, em todas as histórias. Porque amar você é como respirar: essencial, natural e eterno.\n\nNeste Dia dos Namorados, quero te lembrar que meu amor por você não tem fim. Você é o motivo do meu sorriso mais sincero, meu abraço mais apertado e meus sonhos mais bonitos. Te amo hoje, amanhã e para sempre.",
-      "textoDigitado",
-      35
-    );
-  }
-
-  function voltarInicio() {
-    document.getElementById('surpresa').classList.add('hidden');
-    document.getElementById('inicio').classList.remove('hidden');
-    document.getElementById('textoDigitado').textContent = "";
-    document.getElementById('hearts').innerHTML = "";
-  }
-
-  function criarCoracoes() {
-    const heartsContainer = document.getElementById('hearts');
-    for (let i = 0; i < 20; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = `${Math.random() * 100}%`;
-      heart.style.animationDelay = `${Math.random() * 6}s`;
-      heartsContainer.appendChild(heart);
-    }
-  }
-
-  function digitarTexto(texto, elementoId, velocidade = 50) {
-    const elemento = document.getElementById(elementoId);
-    const audio = document.getElementById("teclaAudio");
-    let i = 0;
-    const intervalo = setInterval(() => {
-      if (i < texto.length) {
-        elemento.textContent += texto.charAt(i);
-        if (texto.charAt(i) !== " " && texto.charAt(i) !== "\n") {
-          audio.currentTime = 0;
-          audio.play();
-        }
-        i++;
-      } else {
-        clearInterval(intervalo);
-      }
-    }, velocidade);
-  }
-</script>
