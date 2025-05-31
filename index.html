@@ -50,7 +50,16 @@
     </style>
   </head>
   <body class="bg-black min-h-screen flex items-center justify-center p-6 text-white">
-    <main id="inicio" class="text-center max-w-md w-full">
+
+    <!-- Tela Inicial -->
+    <div id="telaInicial" class="w-full h-screen flex flex-col items-center justify-center bg-gradient-to-b from-pink-600 to-red-600 text-center">
+      <button onclick="irParaInicio()" class="text-white text-3xl font-bold px-6 py-3 bg-white bg-opacity-20 backdrop-blur-md rounded-full hover:bg-opacity-30 transition duration-300">
+        Click 💗
+      </button>
+    </div>
+
+    <!-- Tela Intermediária (já existente) -->
+    <main id="inicio" class="hidden text-center max-w-md w-full">
       <h1 class="text-[28px] font-extrabold text-white mb-4 leading-tight">
         ❤️ Feliz Dia dos <br /> Namorados ❤️
       </h1>
@@ -65,6 +74,7 @@
       </button>
     </main>
 
+    <!-- Tela Surpresa -->
     <div id="surpresa" class="hidden relative w-full h-screen flex flex-col items-center justify-center bg-pink-100 text-center p-6">
       <div id="hearts" class="absolute inset-0 pointer-events-none"></div>
       <h2 class="text-3xl font-bold text-red-700 mb-4">Eu amo você, necal</h2>
@@ -85,6 +95,11 @@
     <audio id="teclaAudio" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b011ae51b5.mp3?filename=typewriter-key-1-19849.mp3"></audio>
 
     <script>
+      function irParaInicio() {
+        document.getElementById('telaInicial').classList.add('hidden');
+        document.getElementById('inicio').classList.remove('hidden');
+      }
+
       function mostrarSurpresa() {
         document.getElementById('inicio').classList.add('hidden');
         document.getElementById('surpresa').classList.remove('hidden');
