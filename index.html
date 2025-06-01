@@ -9,13 +9,9 @@
       body {
         font-family: 'Inter', sans-serif;
       }
-
-      /* Botão com aura */
       .btn-aura {
         box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.6);
       }
-
-      /* Corações bonitos */
       .fancy-heart {
         position: absolute;
         width: 30px;
@@ -25,7 +21,6 @@
         animation: floatUp 8s infinite ease-in-out;
         opacity: 0.8;
       }
-
       .fancy-heart::before,
       .fancy-heart::after {
         content: '';
@@ -35,17 +30,14 @@
         background: radial-gradient(circle at 30% 30%, #ff4d6d, #ff6f91);
         border-radius: 50%;
       }
-
       .fancy-heart::before {
         top: -15px;
         left: 0;
       }
-
       .fancy-heart::after {
         top: 0;
         left: -15px;
       }
-
       @keyframes floatUp {
         0% {
           transform: translateY(100vh) rotate(45deg);
@@ -59,8 +51,6 @@
           opacity: 0;
         }
       }
-
-      /* Texto estilizado */
       .love-title {
         background: linear-gradient(to right, #ff5f6d, #ffc371);
         -webkit-background-clip: text;
@@ -101,7 +91,7 @@
     <!-- TERCEIRA TELA -->
     <div id="surpresa" class="hidden relative w-full h-screen flex flex-col items-center justify-center bg-pink-100 text-center p-6">
       <div id="hearts" class="absolute inset-0 pointer-events-none"></div>
-      <h2 class="love-title mb-4">Eu amo você, necal 💘</h2>
+      <h2 class="love-title mb-4">Você é meu verso mais bonito 💘</h2>
       <img
         src="URL_DA_SUA_FOTO"
         alt="Foto especial"
@@ -109,7 +99,8 @@
       />
       <p id="textoDigitado" class="text-lg text-[#3f0f1a] mb-4 whitespace-pre-line"></p>
       <div class="w-full max-w-sm mb-4">
-        <iframe style="border-radius:12px" src="https://www.youtube.com/embed/sabW3up4BY8?start=48&autoplay=1&mute=0" width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lg7G5zyf8apcquXJ7iPYR?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <small class="text-xs text-[#3f0f1a] block mt-1">*Comece a partir de 00:48 💿</small>
       </div>
       <button onclick="voltarInicio()" class="mt-4 inline-flex items-center justify-center bg-white text-red-700 font-semibold rounded-md px-4 py-2 shadow-md hover:shadow-lg transition duration-300">
         Voltar ao Início
@@ -130,7 +121,7 @@
         document.getElementById('surpresa').classList.remove('hidden');
         criarCoracoes();
         digitarTexto(
-          "Se eu tivesse que escolher de novo, escolheria você em todas as vidas, em todos os tempos, em todas as histórias. Porque amar você é como respirar: essencial, natural e eterno.\n\nNeste Dia dos Namorados, quero te lembrar que meu amor por você não tem fim. Você é o motivo do meu sorriso mais sincero, meu abraço mais apertado e meus sonhos mais bonitos. Te amo hoje, amanhã e para sempre.",
+          "Você é o detalhe mais bonito da minha vida. Quando penso em amor, é seu nome que ecoa no meu coração. 💖\n\nCada momento ao seu lado transforma o comum em extraordinário. Você é minha poesia viva, o abraço que acalma, o sorriso que ilumina.\n\nSe eu pudesse reviver mil vidas, em todas elas te encontraria e me apaixonaria por você de novo. Te amo com a alma e para além do tempo.",
           "textoDigitado",
           35
         );
