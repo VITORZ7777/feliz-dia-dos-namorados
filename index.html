@@ -16,7 +16,7 @@
         position: absolute;
         width: 30px;
         height: 30px;
-        background: radial-gradient(circle at 30% 30%, #ff4d6d, #ff6f91);
+        background: radial-gradient(circle at 30% 30%, #1e40af, #3b82f6); /* azul escuro */
         transform: rotate(45deg);
         animation: floatUp 8s infinite ease-in-out;
         opacity: 0.8;
@@ -27,7 +27,7 @@
         position: absolute;
         width: 30px;
         height: 30px;
-        background: radial-gradient(circle at 30% 30%, #ff4d6d, #ff6f91);
+        background: radial-gradient(circle at 30% 30%, #1e40af, #3b82f6); /* azul escuro */
         border-radius: 50%;
       }
       .fancy-heart::before {
@@ -52,18 +52,17 @@
         }
       }
       .love-title {
-        background: linear-gradient(to right, #ff5f6d, #ffc371);
+        background: linear-gradient(to right, #60a5fa, #1e3a8a);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800;
         font-size: 2rem;
-        text-shadow: 2px 2px 4px rgba(255, 100, 150, 0.6);
+        text-shadow: 2px 2px 4px rgba(30, 58, 138, 0.6);
       }
     </style>
   </head>
 
   <body class="bg-black min-h-screen flex items-center justify-center p-6 text-white">
-
     <!-- TELA INICIAL -->
     <main id="telaInicial" class="text-center max-w-md w-full">
       <button onclick="irParaInicio()" class="inline-flex items-center justify-center bg-white text-black rounded-full px-6 py-3 font-semibold btn-aura hover:scale-105 transition duration-300">
@@ -88,8 +87,8 @@
       </button>
     </main>
 
-    <!-- TERCEIRA TELA -->
-    <div id="surpresa" class="hidden relative w-full h-screen flex flex-col items-center justify-center bg-pink-100 text-center p-6">
+    <!-- TERCEIRA TELA (modificada para azul escuro) -->
+    <div id="surpresa" class="hidden relative w-full h-screen flex flex-col items-center justify-center bg-[#0f172a] text-center p-6">
       <div id="hearts" class="absolute inset-0 pointer-events-none"></div>
       <h2 class="love-title mb-4">Eu amo você, necal 💘</h2>
       <img
@@ -97,11 +96,11 @@
         alt="Foto especial"
         class="rounded-lg shadow-lg w-64 mb-6"
       />
-      <p id="textoDigitado" class="text-lg text-[#3f0f1a] mb-4 whitespace-pre-line"></p>
+      <p id="textoDigitado" class="text-lg text-blue-100 mb-4 whitespace-pre-line"></p>
       <div class="w-full max-w-sm mb-4">
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lg7G5zyf8apcquXJ7iPYR?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
-      <button onclick="voltarInicio()" class="mt-4 inline-flex items-center justify-center bg-white text-red-700 font-semibold rounded-md px-4 py-2 shadow-md hover:shadow-lg transition duration-300">
+      <button onclick="voltarInicio()" class="mt-4 inline-flex items-center justify-center bg-white text-blue-800 font-semibold rounded-md px-4 py-2 shadow-md hover:shadow-lg transition duration-300">
         Voltar ao Início
       </button>
     </div>
